@@ -2,7 +2,7 @@ package ru.tsu.csd;
 
 public class Client {
 	public static void main(String[] args) {
-		Creator c = new PudgeCreator();
+		Factory c = new PudgeFactory();
 		Hero h = c.factoryMethod();
 		System.out.println(h.getClass());
 	}
@@ -14,18 +14,18 @@ class Pudge extends Hero {}
 
 class Mirana extends Hero {}
 
-abstract class Creator {
+abstract class Factory {
 	public abstract Hero factoryMethod();
 }
 
-class PudgeCreator extends Creator {
+class PudgeFactory extends Factory {
 	@Override
 	public Hero factoryMethod() {
 		return new Pudge();
 	}
 }
 
-class MiranaCreator extends Creator {
+class MiranaFactory extends Factory {
 	@Override
 	public Hero factoryMethod() {
 		return new Mirana();
